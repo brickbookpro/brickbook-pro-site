@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brickbook Pro - Professional Masonry Takeoff App</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --accent: #10b981;
+            --text: #0f172a;
+            --muted: #64748b;
+            --bg: #f8fafc;
+        }
+        body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: var(--bg); }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; margin-bottom: 60px; }
+        .logo { font-size: 3rem; font-weight: 900; letter-spacing: -0.05em; color: var(--primary); margin-bottom: 10px; }
+        .logo span { color: var(--accent); }
+        .tagline { font-size: 1.25rem; color: var(--muted); font-weight: 600; }
+
+        section { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); margin-bottom: 40px; }
+        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 0; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+
+        .feature-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .feature-list li { position: relative; padding-left: 30px; font-weight: 500; }
+        .feature-list li::before { content: "✓"; color: var(--accent); position: absolute; left: 0; font-weight: 900; }
+
+        .contact-box { text-align: center; padding: 20px; background: #eff6ff; border-radius: 16px; color: var(--primary); font-weight: 700; }
+
+        .privacy-content { font-size: 0.9rem; color: var(--muted); height: 300px; overflow-y: auto; padding: 20px; background: #f1f5f9; border-radius: 12px; }
+
+        footer { text-align: center; margin-top: 60px; color: var(--muted); font-size: 0.8rem; }
+
+        @media (max-width: 600px) {
+            .feature-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">BRICKBOOK <span>PRO</span></div>
+        <div class="tagline">Digital Masonry Takeoff & Estimation</div>
+    </header>
+
+    <section id="about">
+        <h2>Professional Precision On-Site</h2>
+        <p>Brickbook Pro turns your smartphone into a high-performance digital takeoff tool. Designed for bricklayers and contractors who need speed and accuracy.</p>
+        <ul class="feature-list">
+            <li>Digital Plan Tracing</li>
+            <li>Intelligent Ortho Drawing</li>
+            <li>Magnetic Corner Snapping</li>
+            <li>Triangular Pike Calculator</li>
+            <li>Automatic Deductions</li>
+            <li>Branded PDF Reports</li>
+            <li>Local Backups & Sharing</li>
+            <li>Magnifying Glass Precision</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Support</h2>
+        <p>Need help or have a feature request? Reach out to our development team.</p>
+        <div class="contact-box">
+            brickbookpro@gmail.com
+        </div>
+    </section>
+
+    <section id="privacy">
+        <h2>Privacy Policy</h2>
+        <div class="privacy-content">
+            <h3>1. Data Collection</h3>
+            <p>Brickbook Pro is designed with privacy in mind. We do not collect, store, or share any personal information. All your project data, site plans, and measurements are stored locally on your device and are never uploaded to our servers.</p>
+
+            <h3>2. Camera & Storage Permissions</h3>
+            <p>The app requests access to your Camera and Storage solely to allow you to load blueprints and save project data. These files remain on your device unless you choose to manually export or share them.</p>
+
+            <h3>3. Third-Party Services</h3>
+            <p>The app may use Google Firebase/Crashlytics for anonymous stability monitoring to help us fix bugs. This data is not linked to your identity.</p>
+
+            <h3>4. Contact</h3>
+            <p>For any questions regarding this policy, contact us at brickbookpro@gmail.com.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Brickbook Pro. All rights reserved.<br>
+        www.brickbookpro.com
+    </footer>
+</div>
+
+</body>
+</html>
