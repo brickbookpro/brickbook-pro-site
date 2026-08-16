@@ -60,6 +60,26 @@
         .btn-primary { background: var(--primary); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-block; transition: opacity 0.2s; }
         .btn-primary:hover { opacity: 0.9; }
 
+        /* Play Badge Styling */
+        .play-badge-container { margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .play-badge { width: 200px; cursor: pointer; transition: transform 0.2s; }
+        .play-badge:hover { transform: scale(1.05); }
+        .coming-soon-text { font-size: 0.9rem; font-weight: 800; color: var(--accent); letter-spacing: 0.05em; }
+
+        /* Modal Styling */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(4px); padding: 20px; }
+        .modal-content { background: white; padding: 40px; border-radius: 24px; max-width: 450px; width: 100%; text-align: center; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        .modal-close { position: absolute; top: 20px; right: 20px; font-size: 1.5rem; cursor: pointer; color: var(--muted); border: none; background: none; font-weight: 900; }
+
+        .modal-content h3 { color: var(--primary); font-size: 1.5rem; margin-top: 0; }
+        .modal-content p { color: var(--muted); margin-bottom: 25px; }
+
+        .email-form { display: flex; flex-direction: column; gap: 12px; }
+        .email-input { padding: 14px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; outline: none; transition: border-color 0.2s; }
+        .email-input:focus { border-color: var(--primary); }
+        .submit-btn { background: var(--primary); color: white; padding: 14px; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 1rem; }
+        .submit-btn:hover { background: #172554; }
+
         @media (max-width: 600px) {
             .hero h1 { font-size: 2.5rem; }
         }
@@ -77,7 +97,14 @@
 <div class="hero">
     <h1>The Professional's <span>Takeoff Tool</span></h1>
     <p>Fast, accurate digital masonry estimation directly from your smartphone. Trace plans, calculate gables, and export professional reports in seconds.</p>
-    <a href="#features" class="btn-primary">Explore Features</a>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+        <a href="#features" class="btn-primary">Explore Features</a>
+
+        <div class="play-badge-container">
+            <span class="coming-soon-text">COMING SOON TO</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="play-badge" onclick="openModal()">
+        </div>
+    </div>
 </div>
 
 <div class="container">
@@ -149,6 +176,42 @@
     Built by Bricklayers, for Bricklayers.<br>
     <a href="https://www.tallytrowel.com" style="color: var(--primary); text-decoration: none;">www.tallytrowel.com</a>
 </footer>
+
+<!-- Notification Modal -->
+<div class="modal-overlay" id="emailModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <h3>Coming Soon to Google Play</h3>
+        <p>We're putting the final touches on TallyTrowel. Enter your email below to be the first to know when we launch!</p>
+
+        <!-- Form powered by FormSubmit.co -->
+        <form action="https://formsubmit.co/support@tallytrowel.com" method="POST" class="email-form">
+            <input type="hidden" name="_subject" value="New TallyTrowel Launch Interest!">
+            <input type="hidden" name="_next" value="https://www.tallytrowel.com?status=success">
+            <input type="email" name="email" class="email-input" placeholder="Enter your email address" required>
+            <button type="submit" class="submit-btn">Notify Me</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById('emailModal').style.display = 'flex';
+    }
+    function closeModal() {
+        document.getElementById('emailModal').style.display = 'none';
+    }
+
+    // Simple check for success status in URL
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('status') === 'success') {
+            alert('Thanks! We will notify you as soon as we launch.');
+            // Clean up the URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
+</script>
 
 </body>
 </html>
