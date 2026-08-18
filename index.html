@@ -294,15 +294,16 @@
 <footer>
     <img src="logo.png" class="footer-logo" alt="TallyTrowel Logo"><br>
     &copy; 2026 TallyTrowel. Professional Masonry Software.<br>
-    Built by Bricklayers, for Bricklayers.<br>
-    
-    <span class="privacy-trigger" onclick="togglePrivacy()">Privacy & Data Policy</span>
-    
-    <div id="privacySection" class="privacy-content">
+    Built by Bricklayers, for Bricklayers.<br><br>
+
+    <span class="privacy-trigger" onclick="togglePrivacy()" style="cursor: pointer; text-decoration: underline;">Privacy & Data Summary</span> | 
+    <a href="privacy.html" style="color: #666; text-decoration: none; font-size: 13px;">Full Privacy Policy</a>
+
+    <div id="privacySection" class="privacy-content" style="display: none;">
         <h3 style="color:white; margin-top:0;">Your Data Stays Yours.</h3>
         <p><strong>Offline-First:</strong> TallyTrowel stores all project plans and drawings locally on your device. We do not host your blueprints on our servers.</p>
-        <p><strong>App Stability:</strong> We use Google Firebase to monitor for crashes and bugs anonymously.</p>
         <p><strong>Contact:</strong> support@tallytrowel.com</p>
+        <p><a href="privacy.html" style="color: #64b5f6;">Read the complete legal policy &rarr;</a></p>
     </div>
 </footer>
 
@@ -312,7 +313,7 @@
         x.style.display = (x.style.display === "block") ? "none" : "block";
     }
 
-    window.onload = function() {
+    window.onload = function () {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('status') === 'success') {
             alert('Success! You are on the early access list. We will reach out as soon as the beta opens.');
@@ -320,6 +321,5 @@
         }
     }
 </script>
-
 </body>
 </html>
