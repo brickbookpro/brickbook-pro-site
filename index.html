@@ -64,6 +64,11 @@
             letter-spacing: 0.05em;
         }
 
+        .nav-links { display:flex; align-items:center; gap:18px; }
+        .nav-links a { color:var(--primary); text-decoration:none; font-size:.9rem; font-weight:800; }
+        .nav-links a:hover { color:var(--accent); }
+        .nav-cta { background:var(--accent); color:white !important; padding:9px 15px; border-radius:9px; }
+
         /* --- Hero Section --- */
         .hero { 
             padding: 100px 20px; 
@@ -155,6 +160,200 @@
         .workflow-card li { margin-bottom: 10px; }
         .workflow-card li strong { color: var(--primary); }
 
+        /* --- Why I Built TallyTrowel --- */
+        .why-section {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 30px;
+            padding: 60px 50px;
+            margin-top: 80px;
+        }
+        .why-content {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .why-section h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 0 0 20px 0;
+            letter-spacing: -0.03em;
+        }
+        .why-section p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin: 0 0 18px 0;
+        }
+        .why-points {
+            display: grid;
+            gap: 14px;
+        }
+        .why-point {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 18px 20px;
+        }
+        .why-point strong {
+            display: block;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .why-point span {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+        .why-quote {
+            background: var(--primary);
+            color: white;
+            border-radius: 24px;
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+        }
+        .why-quote::after {
+            content: "🧱";
+            position: absolute;
+            right: 20px;
+            bottom: 5px;
+            font-size: 5rem;
+            opacity: 0.08;
+        }
+        .why-quote h3 {
+            color: white;
+            font-size: 1.35rem;
+            margin: 0 0 15px 0;
+        }
+        .why-quote p {
+            color: #dbeafe;
+            font-size: 1rem;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- How TallyTrowel Works --- */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 20px;
+        }
+        .step-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 28px;
+            position: relative;
+        }
+        .step-number {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            margin-bottom: 18px;
+        }
+        .step-card h3 {
+            color: var(--primary);
+            margin: 0 0 10px;
+            font-size: 1.25rem;
+        }
+        .step-card p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        /* --- Who TallyTrowel Is For --- */
+        .audience-section {
+            background: #f1f5f9;
+            border-radius: 30px;
+            padding: 60px 40px;
+            margin-top: 80px;
+        }
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .audience-item {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 18px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* --- Why TallyTrowel --- */
+        .comparison {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .comparison th, .comparison td {
+            padding: 18px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .comparison th {
+            background: var(--primary);
+            color: white;
+            font-weight: 800;
+        }
+        .comparison td:first-child {
+            color: var(--muted);
+        }
+        .comparison td:last-child {
+            color: var(--primary);
+            font-weight: 800;
+        }
+        .comparison tr:last-child td { border-bottom: none; }
+
+        /* --- Bottom CTA --- */
+        .bottom-cta {
+            background: var(--primary);
+            color: white;
+            border-radius: 30px;
+            padding: 60px 30px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .bottom-cta h2 {
+            color: white;
+            margin: 0 0 12px;
+            font-size: 2.4rem;
+        }
+        .bottom-cta p {
+            color: #dbeafe;
+            max-width: 650px;
+            margin: 0 auto 28px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            padding: 14px 28px;
+            font-weight: 900;
+            transition: .2s;
+        }
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
         /* Roadmap (Navy Background) */
         .roadmap { 
             background: var(--primary); 
@@ -178,6 +377,105 @@
         }
         .roadmap-item span { color: var(--accent); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 8px; }
 
+
+        /* --- How to Use / User Guide --- */
+        .guide-section {
+            margin-top: 80px;
+        }
+        .guide-intro {
+            max-width: 760px;
+            margin: -25px auto 40px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+        .guide-step {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 24px;
+            transition: .2s ease;
+        }
+        .guide-step:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+        .guide-step-number {
+            color: var(--accent);
+            font-size: .8rem;
+            font-weight: 900;
+            letter-spacing: .08em;
+            margin-bottom: 8px;
+        }
+        .guide-step h3 {
+            color: var(--primary);
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+        .guide-step p {
+            color: var(--muted);
+            font-size: .92rem;
+            margin: 0;
+        }
+        .guide-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-top: 22px;
+        }
+        .guide-detail {
+            background: #f1f5f9;
+            border-radius: 20px;
+            padding: 28px;
+        }
+        .guide-detail h3 {
+            margin: 0 0 10px;
+            color: var(--primary);
+        }
+        .guide-detail p {
+            margin: 0;
+            color: var(--muted);
+        }
+        .manual-card {
+            margin-top: 22px;
+            background: var(--primary);
+            color: white;
+            border-radius: 24px;
+            padding: 34px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+        .manual-card h3 {
+            color: white;
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+        .manual-card p {
+            color: #dbeafe;
+            margin: 0;
+            max-width: 700px;
+        }
+        .manual-button {
+            flex: 0 0 auto;
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 13px 20px;
+            border-radius: 10px;
+            font-weight: 900;
+        }
+        .manual-button:hover {
+            background: var(--accent-hover);
+        }
+
         /* --- Footer --- */
         footer { 
             background: #0f172a; 
@@ -189,6 +487,27 @@
         .footer-logo { height: 70px; margin-bottom: 20px; filter: brightness(0) invert(1); }
         .privacy-trigger { color: #64748b; text-decoration: underline; cursor: pointer; font-size: 0.85rem; margin-top: 20px; display: inline-block; }
         .privacy-content { display: none; text-align: left; max-width: 700px; margin: 20px auto; padding: 25px; background: #1e293b; border-radius: 12px; font-size: 0.85rem; }
+
+        @media (max-width: 900px) {
+            .steps-grid { grid-template-columns: 1fr; }
+            .audience-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .guide-steps { grid-template-columns: repeat(2, 1fr); }
+            .guide-detail-grid { grid-template-columns: 1fr; }
+            .manual-card { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media (max-width: 850px) {
+            .why-content { grid-template-columns: 1fr; }
+            .why-section { padding: 45px 25px; }
+        }
+
+        @media (max-width: 600px) {
+            .guide-steps { grid-template-columns: 1fr; }
+            .nav-links a:not(.nav-cta) { display:none; }
+        }
 
         @media (max-width: 600px) {
             .hero-form { flex-direction: column; background: transparent; border: none; padding: 0; }
@@ -202,7 +521,11 @@
 <nav class="nav">
     <div class="nav-container">
         <div class="nav-logo"><img src="logo.png" alt="TallyTrowel Logo"></div>
-        <div class="badge-pro">Built by Bricklayers</div>
+        <div class="nav-links">
+            <a href="#how-to-use">How to Use</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#early-access" class="nav-cta">Early Access</a>
+        </div>
     </div>
 </nav>
 
@@ -266,28 +589,255 @@
         </div>
     </div>
 
-    <!-- Future Roadmap -->
-    <section class="roadmap">
+    <!-- Why I Built TallyTrowel -->
+    <section class="why-section">
+        <div class="why-content">
+            <div>
+                <span class="tagline">Why I Built TallyTrowel</span>
+                <h2>Built to Make Bricklaying Calculations Easier.</h2>
+                <p>
+                    I built TallyTrowel because I wanted something that I would actually find useful
+                    myself. Working around bricklaying, I know how much time can be spent measuring,
+                    counting bricks and checking calculations — and sometimes going back over the
+                    same figures because you're not completely sure you've got them right.
+                </p>
+                <p>
+                    The idea was simple: <strong>make those jobs quicker and make the figures easier
+                    to check.</strong> Instead of having calculations spread across bits of paper,
+                    notes and different tools, I wanted to bring the important parts of a masonry
+                    takeoff together in one place.
+                </p>
+                <p>
+                    TallyTrowel isn't about replacing the experience of a bricklayer. It's about
+                    giving that experience a useful tool alongside it — something that can save time,
+                    help organise a job and give you another way to check your numbers before you
+                    order materials, price work or start laying.
+                </p>
+                <p>
+                    I built it with bricklayers in mind because that's where I saw the need for it.
+                    <strong>Built by Bricklayers, for Bricklayers.</strong>
+                </p>
+            </div>
+            <div class="why-points">
+                <div class="why-point">
+                    <strong>⏱ Save valuable time</strong>
+                    <span>Spend less time working calculations out manually and more time getting the job done.</span>
+                </div>
+                <div class="why-point">
+                    <strong>🔢 Check your figures</strong>
+                    <span>Make it easier to check quantities and calculations before relying on them.</span>
+                </div>
+                <div class="why-point">
+                    <strong>📱 Keep the tools together</strong>
+                    <span>Put useful masonry takeoff and calculation tools in one place, ready when you need them.</span>
+                </div>
+                <div class="why-point">
+                    <strong>🧱 Built for bricklayers</strong>
+                    <span>Created around real construction work rather than being a generic calculator.</span>
+                </div>
+            </div>
+        </div>
+        <div class="why-quote" style="margin-top: 35px;">
+            <h3>Why I wanted to build it.</h3>
+            <p>
+                I wanted to make something practical that saves time, makes the numbers easier to
+                work through and helps bricklayers feel more confident in the figures they're using.
+            </p>
+        </div>
+    </section>
+
+    <!-- How TallyTrowel Works -->
+    <section style="margin-top: 80px;">
+        <div class="section-header">
+            <span class="tagline">How It Works</span>
+            <h2>From Drawing to Results</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <h3>Import Your Drawing</h3>
+                <p>Bring your plan into TallyTrowel and draw first. You can calibrate the scale afterwards using a known dimension.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <h3>Measure & Calculate</h3>
+                <p>Trace walls, add openings and use the built-in masonry calculations to work through your takeoff.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <h3>Review & Report</h3>
+                <p>Check your figures, organise your work and generate a professional report ready to share.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who TallyTrowel Is For -->
+    <section class="audience-section">
+        <div class="section-header" style="margin-bottom: 35px;">
+            <span class="tagline">Made For The Trade</span>
+            <h2>Who Is TallyTrowel For?</h2>
+        </div>
+        <div class="audience-grid">
+            <div class="audience-item">🧱 Bricklayers</div>
+            <div class="audience-item">🏗️ Masonry Contractors</div>
+            <div class="audience-item">📐 Estimators</div>
+            <div class="audience-item">👷 Site Managers</div>
+            <div class="audience-item">🏠 Small Building Companies</div>
+            <div class="audience-item">🔨 Self-Employed Tradespeople</div>
+        </div>
+    </section>
+
+    <!-- Why TallyTrowel -->
+    <section style="margin-top: 80px;">
+        <div class="section-header">
+            <span class="tagline">Why TallyTrowel?</span>
+            <h2>A Simpler Way to Work Through Your Takeoff</h2>
+        </div>
+        <table class="comparison">
+            <thead>
+                <tr><th>Traditional Way</th><th>With TallyTrowel</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Manual calculations</td><td>Digital calculations in one place</td></tr>
+                <tr><td>Multiple bits of paper</td><td>Keep your project information together</td></tr>
+                <tr><td>Re-check figures manually</td><td>Make your calculations easier to review</td></tr>
+                <tr><td>Time spent working things out</td><td>Designed to make takeoffs quicker</td></tr>
+                <tr><td>Easy to lose track of quantities</td><td>Structured workflow for your takeoff</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+
+    <!-- How to Use TallyTrowel -->
+    <section id="how-to-use" class="guide-section">
+        <div class="section-header">
+            <span class="tagline">How to Use TallyTrowel</span>
+            <h2>From Plan to Professional Takeoff</h2>
+        </div>
+
+        <p class="guide-intro">
+            TallyTrowel is designed to take you from your drawing to an organised masonry takeoff
+            and professional report in a simple workflow.
+        </p>
+
+        <div class="guide-steps">
+            <div class="guide-step">
+                <div class="guide-step-number">01</div>
+                <h3>Set Up Your Project</h3>
+                <p>Tap Project &gt; New Project, enter your Contractor, Site Name and Plot/House Type, then save your settings.</p>
+            </div>
+            <div class="guide-step">
+                <div class="guide-step-number">02</div>
+                <h3>Load Your Plan</h3>
+                <p>Tap Project &gt; Load Plan and choose your blueprint or drawing from your device.</p>
+            </div>
+            <div class="guide-step">
+                <div class="guide-step-number">03</div>
+                <h3>Draw Your Walls</h3>
+                <p>Use Box Tool for a fast footprint or Draw Wall to trace individual walls.</p>
+            </div>
+            <div class="guide-step">
+                <div class="guide-step-number">04</div>
+                <h3>Add Openings</h3>
+                <p>Add windows and doors with their quantity, width and height so they can be deducted from the brick count.</p>
+            </div>
+            <div class="guide-step">
+                <div class="guide-step-number">05</div>
+                <h3>Set the Scale</h3>
+                <p>After drawing, calibrate the project using a wall with a known real-world length.</p>
+            </div>
+            <div class="guide-step">
+                <div class="guide-step-number">06</div>
+                <h3>Check Your Takeoff</h3>
+                <p>Use the Full-Screen HUD for live totals and the Takeoff Ledger for phase/lift and material breakdowns.</p>
+            </div>
+            <div class="guide-step">
+                <div class="guide-step-number">07</div>
+                <h3>Generate Your Report</h3>
+                <p>Tap Report to create a professional multi-page PDF with your visual map, breakdowns and totals.</p>
+            </div>
+            <div class="guide-step">
+                <div class="guide-step-number">08</div>
+                <h3>Share Your Results</h3>
+                <p>Save or print the PDF, or use WhatsApp and Email to send a summary of the results.</p>
+            </div>
+        </div>
+
+        <div class="guide-detail-grid">
+            <div class="guide-detail">
+                <h3>⏹️ Box Tool — Fast Footprints</h3>
+                <p>
+                    Draw a rectangle over the house footprint, name the four walls, choose the wall
+                    construction and set the shared lift height. TallyTrowel automatically calculates
+                    the correct centre-line maths for the corners.
+                </p>
+            </div>
+            <div class="guide-detail">
+                <h3>✏️ Draw Wall — Individual Walls</h3>
+                <p>
+                    Tap point A and point B, then add the wall label, height and any windows or doors.
+                    Use the 📏 Ortho button when you want your lines to snap to perfectly straight angles.
+                </p>
+            </div>
+            <div class="guide-detail">
+                <h3>🎯 Calibration</h3>
+                <p>
+                    You do not need to calibrate before drawing. Once you have a wall with a known
+                    real-world length, use Drawing &gt; Edit / Clone Wall &gt; Calibrate Project with this Wall.
+                </p>
+            </div>
+            <div class="guide-detail">
+                <h3>📊 Ledger &amp; Full-Screen HUD</h3>
+                <p>
+                    Full Screen gives you more drawing space and live totals. The Takeoff Ledger groups
+                    walls by Phase/Lift and shows material breakdowns and Grand Totals.
+                </p>
+            </div>
+        </div>
+
+        <div class="manual-card">
+            <div>
+                <h3>Want the Full Instructions?</h3>
+                <p>
+                    The complete TallyTrowel End-User Manual covers project setup, drawing and estimating,
+                    calibration, Full-Screen HUD, Takeoff Ledger, reporting and sharing.
+                </p>
+            </div>
+            <a class="manual-button" href="TallyTrowel_End_User_Manual.docx" download>
+                DOWNLOAD USER MANUAL
+            </a>
+        </div>
+    </section>
+
+    <!-- Updated Roadmap -->
+    
+    <section id="roadmap" class="roadmap">
         <span class="tagline">The Roadmap</span>
         <h2>Moving Forward</h2>
         <div class="roadmap-grid">
             <div class="roadmap-item">
-                <span>Phase 2</span>
+                <span>Available Now</span>
                 Brick & Block Cavity Calculations
             </div>
             <div class="roadmap-item">
-                <span>Phase 2</span>
-                Material counts & Wastage Toggles
-            </div>
-            <div class="roadmap-item">
-                <span>Phase 3</span>
+                <span>Available Now</span>
                 Smart Corner Adjustments
             </div>
             <div class="roadmap-item">
-                <span>Phase 3</span>
+                <span>Next</span>
+                Material Counts & Wastage Toggles
+            </div>
+            <div class="roadmap-item">
+                <span>Coming Later</span>
                 Retaining Wall Calculator
             </div>
         </div>
+    </section>
+    <!-- Bottom Early Access CTA -->
+    <section id="early-access" class="bottom-cta">
+        <h2>Ready to Make Your Takeoffs Easier?</h2>
+        <p>Join the TallyTrowel early-access list and be among the first to use the tools built specifically for masonry takeoffs.</p>
+        <a href="#top" class="cta-button" onclick="document.querySelector('.hero-form input').focus(); return false;">GET EARLY ACCESS</a>
     </section>
 </main>
 
