@@ -1,876 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDFGT9KE08"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CDFGT9KE08');
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TallyTrowel is professional masonry takeoff software built for bricklayers, contractors, estimators and construction professionals. Trace plans, calculate brick and block quantities, deduct openings, calculate pikes and create professional reports.">
+<meta name="theme-color" content="#1e3a8a">
+<title>TallyTrowel | Professional Masonry Takeoff & Estimation</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TallyTrowel | Professional Masonry Takeoff & Estimation</title>
-    
-    <style>
-        :root {
-            /* COLORS EXTRACTED FROM LOGO */
-            --primary: #1e3a8a;    /* Navy Blue (from 'Tally' and dark bricks) */
-            --accent: #10b981;     /* Teal Green (from 'Trowel' and light bricks) */
-            --accent-hover: #059669;
-            --text: #0f172a;
-            --muted: #64748b;
-            --bg: #f8fafc;
-            --white: #ffffff;
-        }
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDFGT9KE08"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-CDFGT9KE08');
+</script>
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
-            line-height: 1.6; 
-            color: var(--text); 
-            margin: 0; 
-            background: var(--bg); 
-        }
+<style>
+:root{
+--primary:#1e3a8a;--primary-dark:#172554;--accent:#10b981;--accent-hover:#059669;
+--text:#0f172a;--muted:#64748b;--bg:#f8fafc;--white:#fff;--border:#e2e8f0;
+--soft-blue:#eff6ff;--soft-green:#ecfdf5;--shadow:0 18px 45px rgba(15,23,42,.09)
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;color:var(--text);margin:0;background:var(--bg)}
+img{max-width:100%}a{color:inherit}
+.nav{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 0;position:sticky;top:0;z-index:1000}
+.nav-container{max-width:1120px;margin:auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.nav-logo img{height:70px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:.9rem;font-weight:700}
+.nav-links a{text-decoration:none}.nav-links a:hover{color:var(--primary)}
+.nav-cta{background:var(--accent);color:#fff!important;padding:10px 18px;border-radius:10px}
+.nav-cta:hover{background:var(--accent-hover)}
+.badge-pro{border:2px solid var(--accent);color:var(--accent);padding:6px 13px;border-radius:50px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.hero{position:relative;overflow:hidden;padding:105px 20px 90px;background:radial-gradient(circle at 15% 15%,rgba(16,185,129,.1),transparent 28%),radial-gradient(circle at 85% 20%,rgba(30,58,138,.1),transparent 30%),var(--white);text-align:center}
+.hero-inner{max-width:900px;margin:auto}.eyebrow,.section-tag{color:var(--accent);font-weight:900;text-transform:uppercase;letter-spacing:.11em;font-size:.82rem;display:block}
+.eyebrow{margin-bottom:16px}
+.hero h1{font-size:clamp(2.8rem,7vw,5rem);font-weight:950;color:var(--primary);margin:0 0 22px;letter-spacing:-.055em;line-height:1.02}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:clamp(1.12rem,2.2vw,1.38rem);color:var(--muted);max-width:760px;margin:0 auto 34px}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 24px;border-radius:12px;text-decoration:none;font-weight:900;border:2px solid transparent;transition:.2s}
+.button:hover{transform:translateY(-2px)}
+.button-primary{background:var(--accent);color:#fff}.button-primary:hover{background:var(--accent-hover)}
+.button-secondary{background:#fff;color:var(--primary);border-color:var(--border)}.button-secondary:hover{border-color:var(--primary)}
+.hero-form{background:#f1f5f9;padding:8px;border-radius:16px;display:flex;max-width:590px;margin:32px auto 0;border:2px solid var(--border);box-shadow:0 10px 30px rgba(15,23,42,.05)}
+.hero-form:focus-within{border-color:var(--primary);background:#fff}
+.hero-form input{flex:1;min-width:0;border:0;background:transparent;padding:13px 18px;font-size:1rem;outline:0}
+.hero-form button{background:var(--accent);color:#fff;border:0;padding:13px 24px;border-radius:10px;font-weight:900;cursor:pointer}
+.hero-form button:hover{background:var(--accent-hover)}
+.hero-note{margin-top:18px;color:var(--muted);font-size:.86rem}
+.trust-row{max-width:800px;margin:48px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.trust-item{background:rgba(255,255,255,.85);border:1px solid var(--border);border-radius:14px;padding:14px;font-size:.88rem;font-weight:800}
+.container{max-width:1120px;margin:auto;padding:88px 20px}
+.section-header{text-align:center;max-width:760px;margin:0 auto 50px}
+.section-header h2{font-size:clamp(2rem,4vw,2.8rem);color:var(--primary);font-weight:950;margin:0 0 14px;letter-spacing:-.035em}
+.section-header p{color:var(--muted);margin:0;font-size:1.05rem}.section-tag{margin-bottom:10px}
+.showcase{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.showcase-image{background:#fff;padding:12px;border-radius:24px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.showcase-image img{display:block;width:100%;border-radius:15px}
+.showcase-copy h3{font-size:2rem;color:var(--primary);margin:0 0 15px;line-height:1.15}
+.showcase-copy p{color:var(--muted);font-size:1.03rem}
+.check-list{list-style:none;padding:0;margin:24px 0 0}.check-list li{position:relative;padding:8px 0 8px 30px;font-weight:700}
+.check-list li:before{content:"✓";position:absolute;left:0;top:7px;color:var(--accent);font-weight:950}
+.feature-grid,.audience,.steps{display:grid;gap:18px}.feature-grid{grid-template-columns:repeat(4,1fr)}
+.feature-card,.audience-card,.step{background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px;transition:.2s}
+.feature-card:hover{transform:translateY(-4px);border-color:rgba(16,185,129,.55);box-shadow:var(--shadow)}
+.feature-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:var(--soft-green);font-size:1.35rem;margin-bottom:17px}
+.feature-card h3,.audience-card h3,.step h3{color:var(--primary);margin:0 0 8px}
+.feature-card p,.audience-card p,.step p{color:var(--muted);margin:0;font-size:.92rem}
+.steps{grid-template-columns:repeat(4,1fr)}
+.step-number{font-size:.78rem;font-weight:950;color:var(--accent);letter-spacing:.1em;margin-bottom:12px}
+.story{background:#fff;border:1px solid var(--border);border-radius:28px;padding:clamp(30px,5vw,60px);display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center;box-shadow:var(--shadow)}
+.story-badge{display:inline-flex;padding:9px 14px;border-radius:50px;background:var(--soft-blue);color:var(--primary);font-weight:900;font-size:.82rem}
+.story h2{color:var(--primary);font-size:clamp(2rem,4vw,2.7rem);line-height:1.1;margin:16px 0 0}
+.story-copy p{color:var(--muted);margin:0 0 16px;font-size:1.02rem}.story-signoff{color:var(--primary)!important;font-weight:900}
+.audience{grid-template-columns:repeat(4,1fr)}
+.privacy-box{background:var(--primary);color:#fff;border-radius:28px;padding:clamp(32px,5vw,55px);display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.privacy-box h2{margin:0 0 12px;font-size:2rem}.privacy-box p{color:#dbeafe;margin:0}
+.privacy-points{display:grid;gap:12px}.privacy-point{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:14px 16px;font-weight:700}
+.release{background:var(--soft-green);border:1px solid #bbf7d0;border-radius:24px;padding:30px}.release h3{color:var(--primary);margin:0 0 18px}
+.release-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 35px}.release-item{color:#166534;font-weight:750}
+.roadmap{background:var(--primary);border-radius:30px;padding:58px 40px;color:#fff}.roadmap h2{color:#fff;font-weight:950;margin:0 0 10px}
+.roadmap-intro{color:#dbeafe;max-width:700px;margin:0}.roadmap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:35px}
+.roadmap-item{background:rgba(255,255,255,.06);padding:23px;border-radius:15px;border:1px solid rgba(255,255,255,.12)}
+.roadmap-item span{color:var(--accent);font-weight:900;font-size:.75rem;text-transform:uppercase;display:block;margin-bottom:8px;letter-spacing:.06em}
+.faq{max-width:850px;margin:auto}.faq details{background:#fff;border:1px solid var(--border);border-radius:13px;margin-bottom:10px;padding:18px 20px}
+.faq summary{cursor:pointer;font-weight:850;color:var(--primary)}.faq details p{color:var(--muted);margin:12px 0 0}
+.final-cta{text-align:center;background:#fff;border:1px solid var(--border);border-radius:28px;padding:60px 25px;box-shadow:var(--shadow)}
+.final-cta h2{color:var(--primary);font-size:clamp(2rem,4vw,3rem);margin:0 0 12px}.final-cta p{color:var(--muted);max-width:620px;margin:0 auto 25px}
+footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;border-top:4px solid var(--accent)}
+.footer-logo{height:65px;margin-bottom:18px;filter:brightness(0) invert(1)}footer a{color:#cbd5e1}
+.footer-links{margin-top:18px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap}.footer-links a{text-decoration:none;font-size:.9rem}
+.copyright{margin-top:20px;font-size:.84rem}
+@media(max-width:900px){
+.nav-links a:not(.nav-cta){display:none}.feature-grid,.audience,.roadmap-grid{grid-template-columns:repeat(2,1fr)}
+.steps{grid-template-columns:repeat(2,1fr)}.showcase,.story,.privacy-box{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+.nav-logo img{height:58px}.badge-pro{font-size:.65rem;padding:5px 9px}.hero{padding:75px 18px 65px}
+.hero-form{flex-direction:column;background:transparent;border:0;box-shadow:none;padding:0}
+.hero-form input{background:#fff;border:2px solid var(--border);border-radius:12px;margin-bottom:10px;padding:16px}
+.hero-form button{padding:16px;border-radius:12px;width:100%}
+.trust-row,.feature-grid,.steps,.audience,.release-grid,.roadmap-grid{grid-template-columns:1fr}
+.container{padding:65px 18px}.roadmap{padding:38px 24px}
+}
 
-        /* --- Navigation --- */
-        .nav { 
-            background: var(--white); 
-            border-bottom: 1px solid #e2e8f0; 
-            padding: 15px 0; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-        }
-        .nav-container { 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            padding: 0 20px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        .nav-logo img { height: 90px; display: block; }
-        .badge-pro { 
-            border: 2px solid var(--accent); 
-            color: var(--accent); 
-            padding: 6px 14px; 
-            border-radius: 50px; 
-            font-size: 0.75rem; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 0.05em;
-        }
+.screenshot-showcase{display:grid;grid-template-columns:1.05fr .95fr;gap:38px;align-items:center}
+.device-frame{background:#0b1220;border:10px solid #0b1220;border-radius:34px;padding:0;box-shadow:0 28px 65px rgba(15,23,42,.18);overflow:hidden;position:relative}
+.device-frame:before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:78px;height:5px;background:#263246;border-radius:999px;z-index:2}
+.device-frame img{display:block;width:100%;height:auto;background:#fff}
+.screenshot-card{background:#fff;border:1px solid var(--border);border-radius:22px;padding:14px;box-shadow:var(--shadow)}
+.screenshot-card img{display:block;width:100%;border-radius:15px}
+.screenshot-card figcaption{padding:13px 4px 3px;color:var(--muted);font-size:.9rem;font-weight:700}
+.screenshot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.screenshot-grid .screenshot-card{padding:10px}
+.screenshot-grid figcaption{padding:11px 4px 2px}
+.report-showcase{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+.report-preview{max-height:720px;object-fit:contain;object-position:top}
+@media(max-width:900px){.screenshot-showcase,.report-showcase{grid-template-columns:1fr}.screenshot-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.screenshot-grid{grid-template-columns:1fr}.device-frame{border-width:7px;border-radius:25px}}
 
-        .nav-links { display:flex; align-items:center; gap:18px; }
-        .nav-links a { color:var(--primary); text-decoration:none; font-size:.9rem; font-weight:800; }
-        .nav-links a:hover { color:var(--accent); }
-        .nav-cta { background:var(--accent); color:white !important; padding:9px 15px; border-radius:9px; }
-
-        /* --- Hero Section --- */
-        .hero { 
-            padding: 100px 20px; 
-            background: var(--white); 
-            text-align: center;
-        }
-        .hero-inner { max-width: 850px; margin: 0 auto; }
-        .hero h1 { 
-            font-size: clamp(2.5rem, 6vw, 4.2rem); 
-            font-weight: 900; 
-            color: var(--primary); 
-            margin: 0 0 20px 0; 
-            letter-spacing: -0.04em; 
-            line-height: 1.1;
-        }
-        .hero h1 span { color: var(--accent); }
-        .hero p { 
-            font-size: clamp(1.1rem, 2vw, 1.3rem); 
-            color: var(--muted); 
-            max-width: 700px; 
-            margin: 0 auto 40px auto; 
-        }
-
-        /* Brand Form */
-        .hero-form { 
-            background: #f1f5f9; 
-            padding: 8px; 
-            border-radius: 16px; 
-            display: flex; 
-            max-width: 500px; 
-            margin: 0 auto 30px auto; 
-            border: 2px solid #e2e8f0; 
-            transition: 0.3s;
-        }
-        .hero-form:focus-within { border-color: var(--primary); background: var(--white); }
-        .hero-form input { 
-            flex: 1; 
-            border: none; 
-            background: transparent; 
-            padding: 12px 20px; 
-            font-size: 1rem; 
-            outline: none; 
-        }
-        .hero-form button { 
-            background: var(--accent); 
-            color: var(--white); 
-            border: none; 
-            padding: 12px 28px; 
-            border-radius: 10px; 
-            font-weight: 800; 
-            cursor: pointer; 
-            transition: 0.2s; 
-        }
-        .hero-form button:hover { background: var(--accent-hover); transform: scale(1.02); }
-
-        .play-badge-large { height: 60px; margin-top: 10px; transition: 0.2s; cursor: pointer; }
-        .play-badge-large:hover { transform: scale(1.05); }
-
-        /* --- Content Sections --- */
-        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 2.5rem; color: var(--primary); font-weight: 900; }
-        .tagline { color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; display: block; margin-bottom: 10px; }
-
-        .workflow-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 30px; 
-            margin-bottom: 80px; 
-        }
-        .workflow-card { 
-            background: var(--white); 
-            border-radius: 24px; 
-            padding: 30px; 
-            border: 1px solid #e2e8f0; 
-            text-align: left; 
-            transition: 0.3s ease;
-        }
-        .workflow-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .workflow-card img { 
-            width: 100%; 
-            border-radius: 12px; 
-            margin-bottom: 25px; 
-            border: 1px solid #f1f5f9; 
-            background: var(--bg);
-        }
-        .workflow-card h3 { font-size: 1.4rem; margin: 0 0 15px 0; color: var(--primary); font-weight: 800; }
-        .workflow-card ul { padding-left: 18px; margin: 0; color: var(--muted); font-size: 0.95rem; }
-        .workflow-card li { margin-bottom: 10px; }
-        .workflow-card li strong { color: var(--primary); }
-
-        /* --- Why I Built TallyTrowel --- */
-        .why-section {
-            background: var(--white);
-            border: 1px solid #e2e8f0;
-            border-radius: 30px;
-            padding: 60px 50px;
-            margin-top: 80px;
-        }
-        .why-content {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 50px;
-            align-items: center;
-        }
-        .why-section h2 {
-            color: var(--primary);
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin: 0 0 20px 0;
-            letter-spacing: -0.03em;
-        }
-        .why-section p {
-            color: var(--muted);
-            font-size: 1.05rem;
-            margin: 0 0 18px 0;
-        }
-        .why-points {
-            display: grid;
-            gap: 14px;
-        }
-        .why-point {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 18px 20px;
-        }
-        .why-point strong {
-            display: block;
-            color: var(--primary);
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-        .why-point span {
-            color: var(--muted);
-            font-size: 0.92rem;
-        }
-        .why-quote {
-            background: var(--primary);
-            color: white;
-            border-radius: 24px;
-            padding: 35px;
-            position: relative;
-            overflow: hidden;
-        }
-        .why-quote::after {
-            content: "🧱";
-            position: absolute;
-            right: 20px;
-            bottom: 5px;
-            font-size: 5rem;
-            opacity: 0.08;
-        }
-        .why-quote h3 {
-            color: white;
-            font-size: 1.35rem;
-            margin: 0 0 15px 0;
-        }
-        .why-quote p {
-            color: #dbeafe;
-            font-size: 1rem;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* --- How TallyTrowel Works --- */
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            margin-top: 20px;
-        }
-        .step-card {
-            background: var(--white);
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 28px;
-            position: relative;
-        }
-        .step-number {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            margin-bottom: 18px;
-        }
-        .step-card h3 {
-            color: var(--primary);
-            margin: 0 0 10px;
-            font-size: 1.25rem;
-        }
-        .step-card p {
-            color: var(--muted);
-            margin: 0;
-        }
-
-        /* --- Who TallyTrowel Is For --- */
-        .audience-section {
-            background: #f1f5f9;
-            border-radius: 30px;
-            padding: 60px 40px;
-            margin-top: 80px;
-        }
-        .audience-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-        .audience-item {
-            background: var(--white);
-            border: 1px solid #e2e8f0;
-            border-radius: 15px;
-            padding: 18px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        /* --- Why TallyTrowel --- */
-        .comparison {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--white);
-            border-radius: 18px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-        }
-        .comparison th, .comparison td {
-            padding: 18px 20px;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .comparison th {
-            background: var(--primary);
-            color: white;
-            font-weight: 800;
-        }
-        .comparison td:first-child {
-            color: var(--muted);
-        }
-        .comparison td:last-child {
-            color: var(--primary);
-            font-weight: 800;
-        }
-        .comparison tr:last-child td { border-bottom: none; }
-
-        /* --- Bottom CTA --- */
-        .bottom-cta {
-            background: var(--primary);
-            color: white;
-            border-radius: 30px;
-            padding: 60px 30px;
-            text-align: center;
-            margin-top: 80px;
-        }
-        .bottom-cta h2 {
-            color: white;
-            margin: 0 0 12px;
-            font-size: 2.4rem;
-        }
-        .bottom-cta p {
-            color: #dbeafe;
-            max-width: 650px;
-            margin: 0 auto 28px;
-        }
-        .cta-button {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            padding: 14px 28px;
-            font-weight: 900;
-            transition: .2s;
-        }
-        .cta-button:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        /* Roadmap (Navy Background) */
-        .roadmap { 
-            background: var(--primary); 
-            border-radius: 30px; 
-            padding: 60px 40px; 
-            color: white; 
-            margin-top: 80px; 
-        }
-        .roadmap h2 { color: white; font-weight: 900; margin-top: 0; }
-        .roadmap-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-            gap: 20px; 
-            margin-top: 40px; 
-        }
-        .roadmap-item { 
-            background: rgba(255,255,255,0.05); 
-            padding: 25px; 
-            border-radius: 15px; 
-            border: 1px solid rgba(255,255,255,0.1); 
-        }
-        .roadmap-item span { color: var(--accent); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 8px; }
-
-
-        /* --- How to Use / User Guide --- */
-        .guide-section {
-            margin-top: 80px;
-        }
-        .guide-intro {
-            max-width: 760px;
-            margin: -25px auto 40px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 1.05rem;
-        }
-        .guide-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-        .guide-step {
-            background: var(--white);
-            border: 1px solid #e2e8f0;
-            border-radius: 18px;
-            padding: 24px;
-            transition: .2s ease;
-        }
-        .guide-step:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent);
-        }
-        .guide-step-number {
-            color: var(--accent);
-            font-size: .8rem;
-            font-weight: 900;
-            letter-spacing: .08em;
-            margin-bottom: 8px;
-        }
-        .guide-step h3 {
-            color: var(--primary);
-            margin: 0 0 8px;
-            font-size: 1.1rem;
-        }
-        .guide-step p {
-            color: var(--muted);
-            font-size: .92rem;
-            margin: 0;
-        }
-        .guide-detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-            margin-top: 22px;
-        }
-        .guide-detail {
-            background: #f1f5f9;
-            border-radius: 20px;
-            padding: 28px;
-        }
-        .guide-detail h3 {
-            margin: 0 0 10px;
-            color: var(--primary);
-        }
-        .guide-detail p {
-            margin: 0;
-            color: var(--muted);
-        }
-        .manual-card {
-            margin-top: 22px;
-            background: var(--primary);
-            color: white;
-            border-radius: 24px;
-            padding: 34px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 25px;
-        }
-        .manual-card h3 {
-            color: white;
-            margin: 0 0 8px;
-            font-size: 1.4rem;
-        }
-        .manual-card p {
-            color: #dbeafe;
-            margin: 0;
-            max-width: 700px;
-        }
-        .manual-button {
-            flex: 0 0 auto;
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            padding: 13px 20px;
-            border-radius: 10px;
-            font-weight: 900;
-        }
-        .manual-button:hover {
-            background: var(--accent-hover);
-        }
-
-        /* --- Footer --- */
-        footer { 
-            background: #0f172a; 
-            color: #94a3b8; 
-            padding: 80px 20px; 
-            text-align: center; 
-            border-top: 4px solid var(--accent);
-        }
-        .footer-logo { height: 70px; margin-bottom: 20px; filter: brightness(0) invert(1); }
-        .privacy-trigger { color: #64748b; text-decoration: underline; cursor: pointer; font-size: 0.85rem; margin-top: 20px; display: inline-block; }
-        .privacy-content { display: none; text-align: left; max-width: 700px; margin: 20px auto; padding: 25px; background: #1e293b; border-radius: 12px; font-size: 0.85rem; }
-
-        @media (max-width: 900px) {
-            .steps-grid { grid-template-columns: 1fr; }
-            .audience-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 900px) {
-            .guide-steps { grid-template-columns: repeat(2, 1fr); }
-            .guide-detail-grid { grid-template-columns: 1fr; }
-            .manual-card { flex-direction: column; align-items: flex-start; }
-        }
-
-        @media (max-width: 850px) {
-            .why-content { grid-template-columns: 1fr; }
-            .why-section { padding: 45px 25px; }
-        }
-
-        @media (max-width: 600px) {
-            .guide-steps { grid-template-columns: 1fr; }
-            .nav-links a:not(.nav-cta) { display:none; }
-        }
-
-        @media (max-width: 600px) {
-            .hero-form { flex-direction: column; background: transparent; border: none; padding: 0; }
-            .hero-form input { background: var(--white); border: 2px solid #e2e8f0; border-radius: 12px; margin-bottom: 10px; padding: 16px; }
-            .hero-form button { padding: 16px; border-radius: 12px; width: 100%; }
-        }
-    html { scroll-behavior: smooth; }
-    </style>
+</style>
 </head>
-<body>
 
+<body>
 <nav class="nav">
-    <div class="nav-container">
-        <div class="nav-logo"><img src="logo.png" alt="TallyTrowel Logo"></div>
-        <div class="nav-links">
-            <a href="#how-to-use">How to Use</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#early-access" class="nav-cta">Early Access</a>
-        </div>
-    </div>
+<div class="nav-container">
+<a class="nav-logo" href="#" aria-label="TallyTrowel home"><img src="logo.png" alt="TallyTrowel Logo"></a>
+<div class="nav-links">
+<a href="#features">Features</a>
+<a href="#how-it-works">How It Works</a>
+<a href="#story">Why TallyTrowel</a>
+<a class="nav-cta" href="#early-access-form">Get Early Access</a>
+</div>
+<div class="badge-pro">Built by Bricklayers</div>
+</div>
 </nav>
 
-<header class="hero">
-    <div class="hero-inner">
-        <span class="tagline">Masonry Takeoff Re-imagined</span>
-        <h1>Stop Guessing, <br>Start <span>Gauging.</span></h1>
-        <p>The professional-grade takeoff tool built specifically for masonry. High-speed estimation in your pocket.</p>
-        
-        <form action="https://formsubmit.co/support@tallytrowel.com" method="POST" class="hero-form">
-            <input type="hidden" name="_subject" value="TallyTrowel Early Access Request">
-            <input type="hidden" name="_next" value="https://tallytrowel.com?status=success">
-            <input type="email" name="email" placeholder="Enter your email for early access" required>
-            <button type="submit">Notify Me</button>
-        </form>
+<header class="hero" id="early-access">
+<div class="hero-inner">
+<span class="eyebrow">Professional Masonry Takeoff</span>
+<h1>Stop Guessing.<br>Start <span>Gauging.</span></h1>
+<p>Professional masonry takeoff, built for bricklayers. Measure from building plans, calculate brick and block quantities, account for openings, cavities and pikes, and produce professional takeoff reports — all from your phone.</p>
 
-        <div style="margin-top: 15px; font-weight: 800; color: var(--primary); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">Coming Soon To</div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play Store" class="play-badge-large" onclick="document.querySelector('.hero-form input').focus();">
-    </div>
+<div class="hero-actions">
+<a class="button button-primary" href="#early-access-form">Get Early Access</a>
+<a class="button button-secondary" href="#how-it-works">See How It Works</a>
+</div>
+
+<form id="early-access-form" action="https://formsubmit.co/support@tallytrowel.com" method="POST" class="hero-form">
+<input type="hidden" name="_subject" value="TallyTrowel Early Access Request">
+<input type="hidden" name="_next" value="https://tallytrowel.com?status=success">
+<input type="email" name="email" placeholder="Enter your email for early access" aria-label="Email address" required>
+<button type="submit">Join Early Access</button>
+</form>
+<div class="hero-note">Be among the first to try TallyTrowel when the beta opens.</div>
+
+<div class="trust-row">
+<div class="trust-item">📐 Plan Tracing</div>
+<div class="trust-item">🧱 Brick &amp; Block Takeoff</div>
+<div class="trust-item">📄 Professional Reports</div>
+</div>
+</div>
 </header>
 
-<main class="container">
-    <section class="section-header">
-        <span class="tagline">The Toolkit</span>
-        <h2>End-to-End Estimation</h2>
-    </section>
+<main>
+<section class="container">
+<div class="section-header">
+<span class="section-tag">See It In Action</span>
+<h2>From Building Plan to Takeoff</h2>
+<p>See the workflow in the app — from tracing the plan to live quantities and a finished report.</p>
+</div>
+<div class="screenshot-showcase">
+<div class="device-frame">
+<img src="images/hero-drawing.jpg" alt="TallyTrowel building plan with traced walls, wall labels and opening schedule" fetchpriority="high">
+</div>
+<div class="showcase-copy">
+<h3>Trace your plan. Measure your walls. Get your quantities.</h3>
+<p>Load a building plan, calibrate it using a known dimension and trace the walls directly on screen. TallyTrowel turns those measurements into a live masonry takeoff.</p>
+<ul class="check-list">
+<li>Calibrate plans using known dimensions</li>
+<li>Trace walls directly on the drawing</li>
+<li>See live area and brick quantities as you work</li>
+<li>Review everything in the Takeoff Ledger</li>
+</ul>
+</div>
+</div>
+</section>
 
-    <div class="workflow-grid">
-        <!-- Feature 1 -->
-        <div class="workflow-card">
-            <img src="ss_drawing.png" alt="Drawing Tool">
-            <h3>Surgical Takeoff</h3>
-            <ul>
-                <li><strong>Intelligent Tracing:</strong> Import plans and trace walls with magnetic snapping and haptic feedback.</li>
-                <li><strong>Magnifier Tool:</strong> Pop-up zoom ensures points land exactly on blueprint lines.</li>
-                <li><strong>Ortho Mode:</strong> Toggle for perfectly straight vertical/horizontal lines.</li>
-                <li><strong>Live Calibration:</strong> Scale your plan once using any known dimension.</li>
-            </ul>
-        </div>
-        <!-- Feature 2 -->
-        <div class="workflow-card">
-            <img src="ss_pike.png" alt="Calculator Tool">
-            <h3>Advanced Math</h3>
-            <ul>
-                <li><strong>Pike Calculator:</strong> Calculate gable areas by entering pitch and base.</li>
-                <li><strong>Smart Deductions:</strong> Subtract windows and doors in one tap.</li>
-                <li><strong>Wall Lifts:</strong> Group walls by Splash Band, Topout, or custom names.</li>
-                <li><strong>Pro Palette:</strong> 20+ custom colors to organize walls visually.</li>
-            </ul>
-        </div>
-        <!-- Feature 3 -->
-        <div class="workflow-card">
-            <img src="ss_report.png" alt="Reporting Tool">
-            <h3>Visual Reporting</h3>
-            <ul>
-                <li><strong>Visual PDF:</strong> Generate a professional PDF report.</li>
-                <li><strong>Instant Sharing:</strong> Send reports directly via WhatsApp or Email.</li>
-                <li><strong>Auto-Save:</strong> Never lose data—every change is saved locally instantly.</li>
-                <li><strong>Site Library:</strong> Manage multiple plots and sites from one dashboard.</li>
-            </ul>
-        </div>
-    </div>
+<section class="container">
+<div class="section-header">
+<span class="section-tag">Inside TallyTrowel</span>
+<h2>See the Tools in Action</h2>
+<p>Real screens from the TallyTrowel app — not stock images or mock-ups.</p>
+</div>
+<div class="screenshot-grid">
+<figure class="screenshot-card"><img src="images/live-takeoff.jpg" alt="TallyTrowel live takeoff screen showing total area and estimated bricks" loading="lazy"><figcaption>Live quantities while you work</figcaption></figure>
+<figure class="screenshot-card"><img src="images/wall-details.jpg" alt="TallyTrowel wall details and construction screen" loading="lazy"><figcaption>Detailed wall calculations</figcaption></figure>
+<figure class="screenshot-card"><img src="images/cavity-party-wall.jpg" alt="TallyTrowel Traditional Cavity party wall calculation" loading="lazy"><figcaption>Traditional cavity &amp; party-wall calculations</figcaption></figure>
+<figure class="screenshot-card"><img src="images/openings.jpg" alt="TallyTrowel opening deductions with W1 window and D1 door references" loading="lazy"><figcaption>Windows, doors &amp; automatic references</figcaption></figure>
+<figure class="screenshot-card"><img src="images/pike-calculator.jpg" alt="TallyTrowel Pike and Topout calculator" loading="lazy"><figcaption>Pike / Topout calculations</figcaption></figure>
+<figure class="screenshot-card"><img src="images/site-library.jpg" alt="TallyTrowel Site Library showing saved projects" loading="lazy"><figcaption>Site Library for saved projects</figcaption></figure>
+</div>
+</section>
 
-    <!-- Why I Built TallyTrowel -->
-    <section class="why-section">
-        <div class="why-content">
-            <div>
-                <span class="tagline">Why I Built TallyTrowel</span>
-                <h2>Built to Make Bricklaying Calculations Easier.</h2>
-                <p>
-                    I built TallyTrowel because I wanted something that I would actually find useful
-                    myself. Working around bricklaying, I know how much time can be spent measuring,
-                    counting bricks and checking calculations — and sometimes going back over the
-                    same figures because you're not completely sure you've got them right.
-                </p>
-                <p>
-                    The idea was simple: <strong>make those jobs quicker and make the figures easier
-                    to check.</strong> Instead of having calculations spread across bits of paper,
-                    notes and different tools, I wanted to bring the important parts of a masonry
-                    takeoff together in one place.
-                </p>
-                <p>
-                    TallyTrowel isn't about replacing the experience of a bricklayer. It's about
-                    giving that experience a useful tool alongside it — something that can save time,
-                    help organise a job and give you another way to check your numbers before you
-                    order materials, price work or start laying.
-                </p>
-                <p>
-                    I built it with bricklayers in mind because that's where I saw the need for it.
-                    <strong>Built by Bricklayers, for Bricklayers.</strong>
-                </p>
-            </div>
-            <div class="why-points">
-                <div class="why-point">
-                    <strong>⏱ Save valuable time</strong>
-                    <span>Spend less time working calculations out manually and more time getting the job done.</span>
-                </div>
-                <div class="why-point">
-                    <strong>🔢 Check your figures</strong>
-                    <span>Make it easier to check quantities and calculations before relying on them.</span>
-                </div>
-                <div class="why-point">
-                    <strong>📱 Keep the tools together</strong>
-                    <span>Put useful masonry takeoff and calculation tools in one place, ready when you need them.</span>
-                </div>
-                <div class="why-point">
-                    <strong>🧱 Built for bricklayers</strong>
-                    <span>Created around real construction work rather than being a generic calculator.</span>
-                </div>
-            </div>
-        </div>
-        <div class="why-quote" style="margin-top: 35px;">
-            <h3>Why I wanted to build it.</h3>
-            <p>
-                I wanted to make something practical that saves time, makes the numbers easier to
-                work through and helps bricklayers feel more confident in the figures they're using.
-            </p>
-        </div>
-    </section>
+<section class="container">
+<div class="report-showcase">
+<div class="showcase-copy">
+<span class="section-tag">Professional Reporting</span>
+<h2 style="color:var(--primary);font-size:clamp(2rem,4vw,2.8rem);line-height:1.1;margin:0 0 15px">Finish with a professional takeoff report.</h2>
+<p>Your completed takeoff can be turned into a clear PDF report with project details, wall breakdowns, deductions, quantities, values and project totals.</p>
+<ul class="check-list">
+<li>Clear wall-by-wall breakdowns</li>
+<li>Brick and block quantities</li>
+<li>Opening deductions and pike calculations</li>
+<li>Project totals ready to save or share</li>
+</ul>
+</div>
+<div class="screenshot-card">
+<img class="report-preview" src="images/pdf-report.png" alt="TallyTrowel professional PDF takeoff report" loading="lazy">
+<figcaption>Example TallyTrowel takeoff report</figcaption>
+</div>
+</div>
+</section>
 
-    <!-- How TallyTrowel Works -->
-    <section style="margin-top: 80px;">
-        <div class="section-header">
-            <span class="tagline">How It Works</span>
-            <h2>From Drawing to Results</h2>
-        </div>
-        <div class="steps-grid">
-            <div class="step-card">
-                <div class="step-number">01</div>
-                <h3>Import Your Drawing</h3>
-                <p>Bring your plan into TallyTrowel and draw first. You can calibrate the scale afterwards using a known dimension.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">02</div>
-                <h3>Measure & Calculate</h3>
-                <p>Trace walls, add openings and use the built-in masonry calculations to work through your takeoff.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-number">03</div>
-                <h3>Review & Report</h3>
-                <p>Check your figures, organise your work and generate a professional report ready to share.</p>
-            </div>
-        </div>
-    </section>
+<section class="container" id="features">
+<div class="section-header">
+<span class="section-tag">The Toolkit</span>
+<h2>Built Around the Way Masonry Takeoffs Work</h2>
+<p>Focused tools for the measurements and calculations that matter.</p>
+</div>
+<div class="feature-grid">
+<article class="feature-card"><div class="feature-icon">📐</div><h3>Plan Tracing</h3><p>Load plans, calibrate the scale and trace walls directly on screen.</p></article>
+<article class="feature-card"><div class="feature-icon">🧱</div><h3>Brick &amp; Block</h3><p>Calculate masonry quantities for brickwork and blockwork from your measured walls.</p></article>
+<article class="feature-card"><div class="feature-icon">🏠</div><h3>Cavity Walls</h3><p>Calculate separate brick and block leaves, including party-wall connections.</p></article>
+<article class="feature-card"><div class="feature-icon">🚪</div><h3>Openings</h3><p>Add windows, doors and other openings and deduct their areas automatically.</p></article>
+<article class="feature-card"><div class="feature-icon">🔺</div><h3>Pike Calculations</h3><p>Calculate gable and pike areas using pitch and base measurements.</p></article>
+<article class="feature-card"><div class="feature-icon">📋</div><h3>Takeoff Ledger</h3><p>Review walls, deductions, areas, quantities and estimates in one place.</p></article>
+<article class="feature-card"><div class="feature-icon">📄</div><h3>PDF Reports</h3><p>Turn your completed takeoff into a professional report you can save and share.</p></article>
+<article class="feature-card"><div class="feature-icon">🗂️</div><h3>Site Library</h3><p>Keep multiple projects and plots organised on your device.</p></article>
+</div>
+</section>
 
-    <!-- Who TallyTrowel Is For -->
-    <section class="audience-section">
-        <div class="section-header" style="margin-bottom: 35px;">
-            <span class="tagline">Made For The Trade</span>
-            <h2>Who Is TallyTrowel For?</h2>
-        </div>
-        <div class="audience-grid">
-            <div class="audience-item">🧱 Bricklayers</div>
-            <div class="audience-item">🏗️ Masonry Contractors</div>
-            <div class="audience-item">📐 Estimators</div>
-            <div class="audience-item">👷 Site Managers</div>
-            <div class="audience-item">🏠 Small Building Companies</div>
-            <div class="audience-item">🔨 Self-Employed Tradespeople</div>
-        </div>
-    </section>
+<section class="container" id="how-it-works">
+<div class="section-header"><span class="section-tag">How It Works</span><h2>Four Simple Steps</h2><p>Designed to keep the workflow quick and easy to follow.</p></div>
+<div class="steps">
+<article class="step"><div class="step-number">01 — LOAD</div><h3>Load your plan</h3><p>Bring your building plan into TallyTrowel.</p></article>
+<article class="step"><div class="step-number">02 — CALIBRATE</div><h3>Set the scale</h3><p>Use a known dimension so your measurements are tied to the real building.</p></article>
+<article class="step"><div class="step-number">03 — TRACE &amp; CALCULATE</div><h3>Measure the job</h3><p>Trace walls, add openings and calculate your masonry quantities.</p></article>
+<article class="step"><div class="step-number">04 — REVIEW &amp; REPORT</div><h3>Check and report</h3><p>Review the Takeoff Ledger and produce your professional PDF report.</p></article>
+</div>
+</section>
 
-    <!-- Why TallyTrowel -->
-    <section style="margin-top: 80px;">
-        <div class="section-header">
-            <span class="tagline">Why TallyTrowel?</span>
-            <h2>A Simpler Way to Work Through Your Takeoff</h2>
-        </div>
-        <table class="comparison">
-            <thead>
-                <tr><th>Traditional Way</th><th>With TallyTrowel</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Manual calculations</td><td>Digital calculations in one place</td></tr>
-                <tr><td>Multiple bits of paper</td><td>Keep your project information together</td></tr>
-                <tr><td>Re-check figures manually</td><td>Make your calculations easier to review</td></tr>
-                <tr><td>Time spent working things out</td><td>Designed to make takeoffs quicker</td></tr>
-                <tr><td>Easy to lose track of quantities</td><td>Structured workflow for your takeoff</td></tr>
-            </tbody>
-        </table>
-    </section>
+<section class="container" id="story">
+<div class="story">
+<div><span class="story-badge">Built by a Bricklayer</span><h2>Why I Built TallyTrowel</h2></div>
+<div class="story-copy">
+<p>I built TallyTrowel because I wanted a quicker and easier way to work out masonry quantities from building plans.</p>
+<p>Measuring walls, counting bricks and blocks, allowing for openings and then checking everything again takes time — and sometimes you're left wondering whether you've actually counted everything correctly.</p>
+<p>I wanted something that could make that process quicker, clearer and easier to check without making it complicated. So I started building TallyTrowel.</p>
+<p class="story-signoff">Built by a bricklayer, for the people who actually do the work.</p>
+</div>
+</div>
+</section>
 
+<section class="container">
+<div class="section-header"><span class="section-tag">Who It's For</span><h2>Built for the People Who Do the Work</h2></div>
+<div class="audience">
+<article class="audience-card"><h3>👷 Bricklayers</h3><p>Work out masonry quantities quickly from building plans.</p></article>
+<article class="audience-card"><h3>🏗️ Contractors</h3><p>Prepare clearer takeoffs and estimates for your projects.</p></article>
+<article class="audience-card"><h3>📐 Estimators &amp; QSs</h3><p>Review measurements, deductions and calculations in one place.</p></article>
+<article class="audience-card"><h3>🏠 Housebuilders</h3><p>Keep plots and project takeoffs organised on your device.</p></article>
+</div>
+</section>
 
-    <!-- How to Use TallyTrowel -->
-    <section id="how-to-use" class="guide-section">
-        <div class="section-header">
-            <span class="tagline">How to Use TallyTrowel</span>
-            <h2>From Plan to Professional Takeoff</h2>
-        </div>
+<section class="container">
+<div class="privacy-box">
+<div><h2>Your Plans Stay on Your Device</h2><p>TallyTrowel is designed around local-first project storage. Your plans, drawings and project calculations are stored locally on your device rather than uploaded to TallyTrowel servers.</p></div>
+<div class="privacy-points">
+<div class="privacy-point">🔒 No TallyTrowel account required</div>
+<div class="privacy-point">📱 Projects stored locally on your device</div>
+<div class="privacy-point">📄 Manual backup and restore available</div>
+</div>
+</div>
+</section>
 
-        <p class="guide-intro">
-            TallyTrowel is designed to take you from your drawing to an organised masonry takeoff
-            and professional report in a simple workflow.
-        </p>
+<section class="container">
+<div class="section-header"><span class="section-tag">Version 1</span><h2>What's Available</h2><p>TallyTrowel V1 brings the core masonry takeoff workflow together in one app.</p></div>
+<div class="release">
+<h3>✓ TallyTrowel V1</h3>
+<div class="release-grid">
+<div class="release-item">✓ Plan tracing</div><div class="release-item">✓ Calibration</div>
+<div class="release-item">✓ Brick &amp; block calculations</div><div class="release-item">✓ Traditional cavity walls</div>
+<div class="release-item">✓ Party wall calculations</div><div class="release-item">✓ Windows, doors &amp; deductions</div>
+<div class="release-item">✓ Pike calculations</div><div class="release-item">✓ Wall lifts</div>
+<div class="release-item">✓ Takeoff Ledger</div><div class="release-item">✓ Professional PDF reports</div>
+<div class="release-item">✓ Site Library</div><div class="release-item">✓ Local project storage</div>
+</div>
+</div>
+</section>
 
-        <div class="guide-steps">
-            <div class="guide-step">
-                <div class="guide-step-number">01</div>
-                <h3>Set Up Your Project</h3>
-                <p>Tap Project &gt; New Project, enter your Contractor, Site Name and Plot/House Type, then save your settings.</p>
-            </div>
-            <div class="guide-step">
-                <div class="guide-step-number">02</div>
-                <h3>Load Your Plan</h3>
-                <p>Tap Project &gt; Load Plan and choose your blueprint or drawing from your device.</p>
-            </div>
-            <div class="guide-step">
-                <div class="guide-step-number">03</div>
-                <h3>Draw Your Walls</h3>
-                <p>Use Box Tool for a fast footprint or Draw Wall to trace individual walls.</p>
-            </div>
-            <div class="guide-step">
-                <div class="guide-step-number">04</div>
-                <h3>Add Openings</h3>
-                <p>Add windows and doors with their quantity, width and height so they can be deducted from the brick count.</p>
-            </div>
-            <div class="guide-step">
-                <div class="guide-step-number">05</div>
-                <h3>Set the Scale</h3>
-                <p>After drawing, calibrate the project using a wall with a known real-world length.</p>
-            </div>
-            <div class="guide-step">
-                <div class="guide-step-number">06</div>
-                <h3>Check Your Takeoff</h3>
-                <p>Use the Full-Screen HUD for live totals and the Takeoff Ledger for phase/lift and material breakdowns.</p>
-            </div>
-            <div class="guide-step">
-                <div class="guide-step-number">07</div>
-                <h3>Generate Your Report</h3>
-                <p>Tap Report to create a professional multi-page PDF with your visual map, breakdowns and totals.</p>
-            </div>
-            <div class="guide-step">
-                <div class="guide-step-number">08</div>
-                <h3>Share Your Results</h3>
-                <p>Save or print the PDF, or use WhatsApp and Email to send a summary of the results.</p>
-            </div>
-        </div>
+<section class="container">
+<div class="roadmap">
+<span class="section-tag">The Roadmap</span><h2>What's Coming Next</h2>
+<p class="roadmap-intro">TallyTrowel V1 is focused on the core masonry takeoff workflow. Future versions can build on that foundation.</p>
+<div class="roadmap-grid">
+<div class="roadmap-item"><span>V1.1 — Planned</span>Material counts &amp; wastage options</div>
+<div class="roadmap-item"><span>Future</span>Expanded material estimation</div>
+<div class="roadmap-item"><span>Future</span>Cloud backup &amp; multi-device sync</div>
+<div class="roadmap-item"><span>Future</span>Quotes &amp; invoice generation</div>
+</div>
+</div>
+</section>
 
-        <div class="guide-detail-grid">
-            <div class="guide-detail">
-                <h3>⏹️ Box Tool — Fast Footprints</h3>
-                <p>
-                    Draw a rectangle over the house footprint, name the four walls, choose the wall
-                    construction and set the shared lift height. TallyTrowel automatically calculates
-                    the correct centre-line maths for the corners.
-                </p>
-            </div>
-            <div class="guide-detail">
-                <h3>✏️ Draw Wall — Individual Walls</h3>
-                <p>
-                    Tap point A and point B, then add the wall label, height and any windows or doors.
-                    Use the 📏 Ortho button when you want your lines to snap to perfectly straight angles.
-                </p>
-            </div>
-            <div class="guide-detail">
-                <h3>🎯 Calibration</h3>
-                <p>
-                    You do not need to calibrate before drawing. Once you have a wall with a known
-                    real-world length, use Drawing &gt; Edit / Clone Wall &gt; Calibrate Project with this Wall.
-                </p>
-            </div>
-            <div class="guide-detail">
-                <h3>📊 Ledger &amp; Full-Screen HUD</h3>
-                <p>
-                    Full Screen gives you more drawing space and live totals. The Takeoff Ledger groups
-                    walls by Phase/Lift and shows material breakdowns and Grand Totals.
-                </p>
-            </div>
-        </div>
+<section class="container">
+<div class="section-header"><span class="section-tag">FAQ</span><h2>Questions, Answered</h2></div>
+<div class="faq">
+<details><summary>What is TallyTrowel?</summary><p>TallyTrowel is a masonry takeoff and estimation app designed to help bricklayers and construction professionals measure building plans and calculate masonry quantities.</p></details>
+<details><summary>Who is TallyTrowel designed for?</summary><p>It is designed primarily for bricklayers, contractors, estimators, quantity surveyors and housebuilders who need to work out masonry quantities from plans.</p></details>
+<details><summary>Can TallyTrowel calculate cavity walls?</summary><p>Yes. V1 supports Traditional Cavity construction, including separate brick and block leaves and party-wall connections.</p></details>
+<details><summary>Can I deduct windows and doors?</summary><p>Yes. Add windows, doors and other openings and TallyTrowel deducts their measured areas from the relevant wall calculations.</p></details>
+<details><summary>Can TallyTrowel calculate pikes?</summary><p>Yes. TallyTrowel includes a pike calculator for gable areas using pitch and base measurements.</p></details>
+<details><summary>Where are my projects stored?</summary><p>TallyTrowel uses local-first project storage. Your project information, drawings and calculations are stored locally on your device. Manual backup and restore is also available.</p></details>
+<details><summary>Can I create a PDF report?</summary><p>Yes. Completed takeoffs can be turned into professional PDF reports that can be saved or shared.</p></details>
+<details><summary>What devices is TallyTrowel available on?</summary><p>TallyTrowel is being developed for Android. Availability and download details will be provided when the release is ready.</p></details>
+</div>
+</section>
 
-        <div class="manual-card">
-            <div>
-                <h3>Want the Full Instructions?</h3>
-                <p>
-                    The complete TallyTrowel End-User Manual covers project setup, drawing and estimating,
-                    calibration, Full-Screen HUD, Takeoff Ledger, reporting and sharing.
-                </p>
-            </div>
-            <a class="manual-button" href="TallyTrowel_End_User_Manual.docx" download>
-                DOWNLOAD USER MANUAL
-            </a>
-        </div>
-    </section>
-
-    <!-- Updated Roadmap -->
-    
-    <section id="roadmap" class="roadmap">
-        <span class="tagline">The Roadmap</span>
-        <h2>Moving Forward</h2>
-        <div class="roadmap-grid">
-            <div class="roadmap-item">
-                <span>Available Now</span>
-                Brick & Block Cavity Calculations
-            </div>
-            <div class="roadmap-item">
-                <span>Available Now</span>
-                Smart Corner Adjustments
-            </div>
-            <div class="roadmap-item">
-                <span>Next</span>
-                Material Counts & Wastage Toggles
-            </div>
-            <div class="roadmap-item">
-                <span>Coming Later</span>
-                Retaining Wall Calculator
-            </div>
-        </div>
-    </section>
-    <!-- Bottom Early Access CTA -->
-    <section id="early-access" class="bottom-cta">
-        <h2>Ready to Make Your Takeoffs Easier?</h2>
-        <p>Join the TallyTrowel early-access list and be among the first to use the tools built specifically for masonry takeoffs.</p>
-        <a href="#top" class="cta-button" onclick="document.querySelector('.hero-form input').focus(); return false;">GET EARLY ACCESS</a>
-    </section>
+<section class="container">
+<div class="final-cta">
+<span class="section-tag">Be First In</span><h2>Ready to Stop Guessing?</h2>
+<p>Join the TallyTrowel early-access list and be among the first to try the app as the beta opens.</p>
+<a class="button button-primary" href="#early-access-form">Get Early Access</a>
+</div>
+</section>
 </main>
 
 <footer>
-    <img src="logo.png" class="footer-logo" alt="TallyTrowel Logo"><br>
-    &copy; 2026 TallyTrowel. Professional Masonry Software.<br>
-    Built by Bricklayers, for Bricklayers.<br><br>
-
-    <span class="privacy-trigger" onclick="togglePrivacy()" style="cursor: pointer; text-decoration: underline;">Privacy & Data Summary</span> | 
-    <a href="privacy.html" style="color: #666; text-decoration: none; font-size: 13px;">Full Privacy Policy</a>
-
-    <div id="privacySection" class="privacy-content" style="display: none;">
-        <h3 style="color:white; margin-top:0;">Your Data Stays Yours.</h3>
-        <p><strong>Offline-First:</strong> TallyTrowel stores all project plans and drawings locally on your device. We do not host your blueprints on our servers.</p>
-        <p><strong>Contact:</strong> support@tallytrowel.com</p>
-        <p><a href="privacy.html" style="color: #64b5f6;">Read the complete legal policy &rarr;</a></p>
-    </div>
+<img src="logo.png" class="footer-logo" alt="TallyTrowel Logo">
+<div>Built by Bricklayers, for Bricklayers.</div>
+<div class="footer-links"><a href="privacy.html">Privacy Policy</a><a href="mailto:support@tallytrowel.com">support@tallytrowel.com</a></div>
+<div class="copyright">&copy; 2026 TallyTrowel. Professional Masonry Software.</div>
 </footer>
 
 <script>
-    function togglePrivacy() {
-        var x = document.getElementById("privacySection");
-        x.style.display = (x.style.display === "block") ? "none" : "block";
-    }
-
-    window.onload = function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('status') === 'success') {
-            alert('Success! You are on the early access list. We will reach out as soon as the beta opens.');
-            window.history.replaceState({}, document.title, window.location.pathname);
-        }
-    }
+window.onload=function(){
+const urlParams=new URLSearchParams(window.location.search);
+if(urlParams.get('status')==='success'){
+alert('Success! You are on the early access list. We will reach out as soon as the beta opens.');
+window.history.replaceState({},document.title,window.location.pathname);
+}
+};
 </script>
 </body>
 </html>
