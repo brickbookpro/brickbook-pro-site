@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="TallyTrowel is professional masonry takeoff software built for bricklayers, contractors, estimators and construction professionals. Trace plans, calculate brick and block quantities, deduct openings, calculate pikes and create professional reports.">
+<meta name="description" content="Explore TallyTrowel tools for bricklayers: Android masonry takeoff, the Wages Portal and Files, Site Diary, BrickBook Pro and upcoming calculators and Windows takeoff software.">
 <meta name="theme-color" content="#1e3a8a">
-<title>TallyTrowel | Professional Masonry Takeoff & Estimation</title>
+<title>TallyTrowel | Practical Software for Bricklayers</title>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDFGT9KE08"></script>
@@ -121,6 +121,23 @@ footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;bord
 @media(max-width:900px){.screenshot-showcase,.report-showcase{grid-template-columns:1fr}.screenshot-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.screenshot-grid{grid-template-columns:1fr}.device-frame{border-width:7px;border-radius:25px}}
 
+
+/* App range and accessible navigation */
+section[id],form[id]{scroll-margin-top:110px}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--primary);outline-offset:4px}
+.menu-toggle{display:none;border:1px solid var(--border);border-radius:9px;background:white;color:var(--primary);padding:10px 14px;font:inherit;font-weight:800;cursor:pointer}
+.nav-links{gap:17px}.nav-container>.badge-pro{display:none}
+.app-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.app-card{padding:32px;border:1px solid var(--border);border-radius:22px;background:white;display:flex;flex-direction:column;min-width:0}
+.app-featured{grid-column:1/-1;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;background:linear-gradient(120deg,#eff6ff,#fff);border-color:#bfdbfe}
+.app-featured-side{align-self:center;padding-left:30px;border-left:1px solid #bfdbfe}
+.app-kicker{display:flex;gap:12px;align-items:center;margin-bottom:20px;flex-wrap:wrap}.app-symbol{font-size:1.45rem;background:var(--soft-green);border-radius:12px;width:46px;height:46px;display:grid;place-items:center}
+.app-status{display:inline-block;color:#1e40af;background:#eff6ff;border:1px solid #bfdbfe;padding:5px 10px;border-radius:30px;font-size:.75rem;font-weight:800}.app-live{color:#166534;background:#ecfdf5;border-color:#a7f3d0}.app-trial{color:#854d0e;background:#fefce8;border-color:#fde68a}.app-planned{color:#475569;background:#f1f5f9;border-color:#cbd5e1}
+.app-card h3{color:var(--primary);font-size:1.6rem;margin:0 0 9px;line-height:1.2}.app-card p{color:var(--muted);margin:0 0 16px}.app-card .app-purpose{color:var(--text);font-weight:750}.app-card .app-availability{font-size:.87rem;padding-top:8px}.app-actions{margin-top:auto;display:flex;align-items:flex-start;gap:15px;flex-direction:column;padding-top:8px}.app-link{color:var(--primary);font-weight:800;text-decoration:none}.app-link:hover{text-decoration:underline}.app-note{margin-top:24px;padding:21px 24px;border-left:4px solid var(--accent);background:#fff;color:var(--muted);border-radius:8px}.app-note strong{color:var(--primary)}
+@media(max-width:900px){.nav-container{flex-wrap:wrap;gap:10px}.menu-toggle{display:block;margin-left:auto}.nav-links{display:none;flex-basis:100%;flex-direction:column;align-items:stretch;gap:0;padding:10px 0}.nav-links.is-open{display:flex}.nav-links a:not(.nav-cta){display:block}.nav-links a{padding:13px 12px}.app-featured{grid-template-columns:1fr;gap:16px}.app-featured-side{padding-left:0;border-left:0;border-top:1px solid #bfdbfe;padding-top:24px}}
+@media(max-width:600px){.app-grid{grid-template-columns:1fr}.app-card{padding:25px}.app-featured{grid-column:auto}.app-card h3{font-size:1.45rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.button:hover,.feature-card:hover{transform:none}}
+
 </style>
 </head>
 
@@ -128,10 +145,12 @@ footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;bord
 <nav class="nav">
 <div class="nav-container">
 <a class="nav-logo" href="#" aria-label="TallyTrowel home"><img src="logo.png" alt="TallyTrowel Logo"></a>
-<div class="nav-links">
-<a href="#features">Features</a>
-<a href="#how-it-works">How It Works</a>
-<a href="#story">Why TallyTrowel</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menu</button>
+<div class="nav-links" id="main-navigation">
+<a href="#apps">Our Apps</a>
+<a href="#takeoff">Takeoff App</a>
+<a href="#story">Our Story</a>
+<a href="https://portal.tallytrowel.com/">Portal Login</a>
 <a class="nav-cta" href="#early-access-form">Get Early Access</a>
 </div>
 <div class="badge-pro">Built by Bricklayers</div>
@@ -140,22 +159,22 @@ footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;bord
 
 <header class="hero" id="early-access">
 <div class="hero-inner">
-<span class="eyebrow">Professional Masonry Takeoff</span>
+<span class="eyebrow">Practical Software for Bricklayers</span>
 <h1>Stop Guessing.<br>Start <span>Gauging.</span></h1>
-<p>Professional masonry takeoff, built for bricklayers. Measure from building plans, calculate brick and block quantities, account for openings, cavities and pikes, and produce professional takeoff reports — all from your phone.</p>
+<p>From measuring plans to recording the work and keeping track of payments. TallyTrowel is a growing range of practical tools built around life on site — starting with our Android masonry takeoff app.</p>
 
 <div class="hero-actions">
-<a class="button button-primary" href="#early-access-form">Get Early Access</a>
-<a class="button button-secondary" href="#how-it-works">See How It Works</a>
+<a class="button button-primary" href="#apps">Explore Our Apps</a>
+<a class="button button-secondary" href="#takeoff">See the Takeoff App</a>
 </div>
 
 <form id="early-access-form" action="https://formsubmit.co/support@tallytrowel.com" method="POST" class="hero-form">
 <input type="hidden" name="_subject" value="TallyTrowel Early Access Request">
 <input type="hidden" name="_next" value="https://tallytrowel.com?status=success">
-<input type="email" name="email" placeholder="Enter your email for early access" aria-label="Email address" required>
+<input type="email" name="email" placeholder="Email for Android takeoff early access" aria-label="Email address" required>
 <button type="submit">Join Early Access</button>
 </form>
-<div class="hero-note">Be among the first to try TallyTrowel when the beta opens.</div>
+<div class="hero-note">Early access is for the Android takeoff app. Other products have their own availability below.</div>
 
 <div class="trust-row">
 <div class="trust-item">📐 Plan Tracing</div>
@@ -166,9 +185,23 @@ footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;bord
 </header>
 
 <main>
-<section class="container">
+
+<section class="container apps-section" id="apps" aria-labelledby="apps-heading">
+<div class="section-header"><span class="section-tag">The TallyTrowel Range</span><h2 id="apps-heading">Tools for the job.<br>From plans to paperwork.</h2><p>Explore what we’re building, what’s being tried on site and what existing users can access today.</p></div>
+<div class="app-grid">
+<article class="app-card app-featured"><div><div class="app-kicker"><span class="app-symbol" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16L4 4Z"/><path d="M8 12v4h4"/></svg></span><span class="app-status">In development · Android</span></div><h3>TallyTrowel Takeoff</h3><p class="app-purpose">Measure the plan. Understand the quantities.</p><p>Our main Android app brings plan tracing, brick and block calculations, opening deductions, pike calculations and PDF takeoff reports together on your phone.</p></div><div class="app-featured-side"><span class="section-tag">Our Main App</span><p>Built by a bricklayer to make masonry takeoffs quicker, clearer and easier to check.</p><div class="app-actions"><a class="button button-primary" href="#takeoff">Explore Takeoff</a><a class="app-link" href="#early-access-form">Join Android early access →</a></div></div></article>
+<article class="app-card"><div class="app-kicker"><span class="app-symbol" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h7l2 3h9v10H3Z"/><path d="M3 7V4h7l2 3h7v3"/></svg></span><span class="app-status app-live">Live · Existing users</span></div><h3>Wages Portal &amp; Files</h3><p class="app-purpose">Keep payments and paperwork together.</p><p>Worker payment records, statements and queries, with photos and PDFs shared through controlled file access.</p><p class="app-availability">For existing authorised accounts. Public registration is not currently offered.</p><div class="app-actions"><a class="button button-secondary" href="https://portal.tallytrowel.com/">Existing User Login</a></div></article>
+<article class="app-card"><div class="app-kicker"><span class="app-symbol" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="15" height="18" rx="2"/><path d="M8 3v18M2 7h5M2 12h5M2 17h5M11 8h6M11 12h6"/></svg></span><span class="app-status app-trial">Entering live trials</span></div><h3>Site Diary</h3><p class="app-purpose">A clear record of the working day.</p><p>Record working hours, stoppages, work types and daily details, then bring your entries together into reports.</p><p class="app-availability">Tested and preparing for real-job use. No public download yet.</p><div class="app-actions"><a class="app-link" href="mailto:support@tallytrowel.com?subject=TallyTrowel%20Site%20Diary%20enquiry">Ask about Site Diary →</a></div></article>
+<article class="app-card"><div class="app-kicker"><span class="app-symbol" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v14H3ZM3 12h18M9 5v7M15 12v7"/></svg></span><span class="app-status app-trial">Entering live trials</span></div><h3>BrickBook Pro</h3><p class="app-purpose">Keep your booking-in organised.</p><p>Record completed work, quantities and earnings, with ledgers and reports to help you keep track of the job.</p><p class="app-availability">Booking-In has been tested and is ready for real-job use. No public download yet.</p><div class="app-actions"><a class="app-link" href="mailto:support@tallytrowel.com?subject=BrickBook%20Pro%20enquiry">Ask about BrickBook Pro →</a></div></article>
+<article class="app-card"><div class="app-kicker"><span class="app-symbol" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 10 18H2L12 3ZM12 9v12"/></svg></span><span class="app-status">Coming soon</span></div><h3>Pike Calculator</h3><p class="app-purpose">A focused calculator for gables and pikes.</p><p>A separate, free app is planned for practical pike calculations, including base-and-height and pitch-based methods.</p><p class="app-availability">Planned as our first Google Play release. Download details will follow when ready.</p><div class="app-actions"><a class="app-link" href="mailto:support@tallytrowel.com?subject=TallyTrowel%20Pike%20Calculator%20enquiry">Ask about Pike Calculator →</a></div></article>
+<article class="app-card"><div class="app-kicker"><span class="app-symbol" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8M8 10h2M14 10h2M8 14h2M14 14h2M8 18h2M14 18h2"/></svg></span><span class="app-status app-planned">Planned</span></div><h3>Price Work Calculator</h3><p class="app-purpose">Make sense of the rate and the return.</p><p>A planned tool for quantities, rates, gang splits, extras and deductions to help estimate what a job could earn.</p><p class="app-availability">In the development plan. Features and release details are still to be confirmed.</p><div class="app-actions"><a class="app-link" href="mailto:support@tallytrowel.com?subject=TallyTrowel%20Price%20Work%20Calculator%20enquiry">Ask about Price Work →</a></div></article>
+<article class="app-card"><div class="app-kicker"><span class="app-symbol" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17v4M7 21h10"/></svg></span><span class="app-status">In development · Windows</span></div><h3>TallyTrowelTakeoff</h3><p class="app-purpose">A bigger workspace for desktop takeoffs.</p><p>Our Windows application is being developed for plan measurement, masonry quantities, materials and labour estimates, and reporting.</p><p class="app-availability">The desktop MVP is in development. No public download yet.</p><div class="app-actions"><a class="app-link" href="mailto:support@tallytrowel.com?subject=TallyTrowelTakeoff%20Windows%20enquiry">Ask about Windows Takeoff →</a></div></article>
+</div><div class="app-note"><strong>Clear availability, no guesswork.</strong> Live trials mean use on real jobs before a wider release. Each app is a separate tool; shared accounts, cloud storage and device syncing are not implied across the range.</div>
+</section>
+
+<section class="container" id="takeoff">
 <div class="section-header">
-<span class="section-tag">See It In Action</span>
+<span class="section-tag">The Android Takeoff App</span>
 <h2>From Building Plan to Takeoff</h2>
 <p>See the workflow in the app — from tracing the plan to live quantities and a finished report.</p>
 </div>
@@ -277,9 +310,9 @@ footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;bord
 
 <section class="container">
 <div class="privacy-box">
-<div><h2>Your Plans Stay on Your Device</h2><p>TallyTrowel is designed around local-first project storage. Your plans, drawings and project calculations are stored locally on your device rather than uploaded to TallyTrowel servers.</p></div>
+<div><h2>Android Takeoff: Local-First Projects</h2><p>The Android takeoff app is designed around local project storage on your device. The Wages Portal &amp; Files is a separate online service with account-based access. Storage and backup arrangements depend on the product you use.</p></div>
 <div class="privacy-points">
-<div class="privacy-point">🔒 No TallyTrowel account required</div>
+<div class="privacy-point">🔒 Android takeoff: no account required</div>
 <div class="privacy-point">📱 Projects stored locally on your device</div>
 <div class="privacy-point">📄 Manual backup and restore available</div>
 </div>
@@ -287,7 +320,7 @@ footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;bord
 </section>
 
 <section class="container">
-<div class="section-header"><span class="section-tag">Version 1</span><h2>What's Available</h2><p>TallyTrowel V1 brings the core masonry takeoff workflow together in one app.</p></div>
+<div class="section-header"><span class="section-tag">Android Takeoff · Version 1</span><h2>Inside the V1 Takeoff Toolkit</h2><p>The core tools in the Android app under development. Public release and download details will be announced when ready.</p></div>
 <div class="release">
 <h3>✓ TallyTrowel V1</h3>
 <div class="release-grid">
@@ -303,7 +336,7 @@ footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;bord
 
 <section class="container">
 <div class="roadmap">
-<span class="section-tag">The Roadmap</span><h2>What's Coming Next</h2>
+<span class="section-tag">The Takeoff App Roadmap</span><h2>Building on the Core Tools</h2>
 <p class="roadmap-intro">TallyTrowel V1 is focused on the core masonry takeoff workflow. Future versions can build on that foundation.</p>
 <div class="roadmap-grid">
 <div class="roadmap-item"><span>V1.1 — Planned</span>Material counts &amp; wastage options</div>
@@ -317,12 +350,14 @@ footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;bord
 <section class="container">
 <div class="section-header"><span class="section-tag">FAQ</span><h2>Questions, Answered</h2></div>
 <div class="faq">
-<details><summary>What is TallyTrowel?</summary><p>TallyTrowel is a masonry takeoff and estimation app designed to help bricklayers and construction professionals measure building plans and calculate masonry quantities.</p></details>
+<details><summary>What is TallyTrowel?</summary><p>TallyTrowel is a growing range of practical software for bricklayers and contractors. The main Android app focuses on masonry takeoff, with separate tools for payments, site records, booking-in and future calculators and desktop takeoffs.</p></details>
+<details><summary>Can I download all the apps now?</summary><p>No. The Wages Portal &amp; Files is live for existing authorised users. Site Diary and BrickBook Pro are entering live trials. The Android takeoff app, calculators and Windows software have the availability shown in Our Apps. We will add public download links when each product is ready.</p></details>
+<details><summary>Does my portal login work with every app?</summary><p>No shared login across the range is currently promised. The portal uses its own authorised accounts. The Android takeoff app is designed for local project use without a TallyTrowel account.</p></details>
 <details><summary>Who is TallyTrowel designed for?</summary><p>It is designed primarily for bricklayers, contractors, estimators, quantity surveyors and housebuilders who need to work out masonry quantities from plans.</p></details>
 <details><summary>Can TallyTrowel calculate cavity walls?</summary><p>Yes. V1 supports Traditional Cavity construction, including separate brick and block leaves and party-wall connections.</p></details>
 <details><summary>Can I deduct windows and doors?</summary><p>Yes. Add windows, doors and other openings and TallyTrowel deducts their measured areas from the relevant wall calculations.</p></details>
 <details><summary>Can TallyTrowel calculate pikes?</summary><p>Yes. TallyTrowel includes a pike calculator for gable areas using pitch and base measurements.</p></details>
-<details><summary>Where are my projects stored?</summary><p>TallyTrowel uses local-first project storage. Your project information, drawings and calculations are stored locally on your device. Manual backup and restore is also available.</p></details>
+<details><summary>Where are my projects stored?</summary><p>The Android takeoff app uses local-first project storage with manual backup and restore. The Wages Portal &amp; Files uses online account-based storage. Check the guidance and privacy information for the specific product you use.</p></details>
 <details><summary>Can I create a PDF report?</summary><p>Yes. Completed takeoffs can be turned into professional PDF reports that can be saved or shared.</p></details>
 <details><summary>What devices is TallyTrowel available on?</summary><p>TallyTrowel is being developed for Android. Availability and download details will be provided when the release is ready.</p></details>
 </div>
@@ -331,7 +366,7 @@ footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;bord
 <section class="container">
 <div class="final-cta">
 <span class="section-tag">Be First In</span><h2>Ready to Stop Guessing?</h2>
-<p>Join the TallyTrowel early-access list and be among the first to try the app as the beta opens.</p>
+<p>Join the Android takeoff early-access list, or explore the other tools taking shape across the TallyTrowel range.</p>
 <a class="button button-primary" href="#early-access-form">Get Early Access</a>
 </div>
 </section>
@@ -340,11 +375,17 @@ footer{background:#0f172a;color:#94a3b8;padding:65px 20px;text-align:center;bord
 <footer>
 <img src="logo.png" class="footer-logo" alt="TallyTrowel Logo">
 <div>Built by Bricklayers, for Bricklayers.</div>
-<div class="footer-links"><a href="privacy.html">Privacy Policy</a><a href="mailto:support@tallytrowel.com">support@tallytrowel.com</a></div>
+<div class="footer-links"><a href="#apps">Our Apps</a><a href="https://portal.tallytrowel.com/">Portal Login</a><a href="privacy.html">Privacy Policy</a><a href="mailto:support@tallytrowel.com">support@tallytrowel.com</a></div>
 <div class="copyright">&copy; 2026 TallyTrowel. Professional Masonry Software.</div>
 </footer>
 
 <script>
+const menuButton=document.querySelector('.menu-toggle');
+const mainNavigation=document.getElementById('main-navigation');
+function closeMenu(){mainNavigation.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false');}
+menuButton.addEventListener('click',()=>{const open=mainNavigation.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',String(open));});
+mainNavigation.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mainNavigation.classList.contains('is-open')){closeMenu();menuButton.focus();}});
 window.onload=function(){
 const urlParams=new URLSearchParams(window.location.search);
 if(urlParams.get('status')==='success'){
